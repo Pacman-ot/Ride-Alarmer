@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ride Alarmer</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero card">
+        <p class="eyebrow">Firebase live location alarm</p>
+        <h1>Ride Alarmer</h1>
+        <p class="lede">
+          One page sends GPS updates from the rider's phone. The other page listens, measures distance to your destination pin, and rings when the cab enters your radius.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="./track.html">Open tracking page</a>
+          <a class="button secondary" href="./monitor.html">Open monitoring page</a>
+        </div>
+        <ul class="feature-list">
+          <li>No backend server</li>
+          <li>Firebase Realtime Database</li>
+          <li>Leaflet + OpenStreetMap</li>
+        </ul>
+      </section>
+
+      <section class="grid">
+        <article class="card panel">
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li>The rider opens the tracking page and allows location access.</li>
+            <li>The page writes coordinates to Firebase every few seconds.</li>
+            <li>You set a destination pin on the monitor page.</li>
+            <li>The alarm fires when the rider is within range.</li>
+          </ol>
+        </article>
+
+        <article class="card panel">
+          <h2>Setup checklist</h2>
+          <ol class="steps">
+            <li>Create a Firebase project and enable Realtime Database.</li>
+            <li>Paste the Firebase config into <strong>firebase-config.js</strong>.</li>
+            <li>Host these static files on GitHub Pages or Netlify.</li>
+            <li>Share the tracking link with the rider.</li>
+          </ol>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

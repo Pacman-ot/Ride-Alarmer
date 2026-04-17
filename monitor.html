@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ride Alarm - Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell app-layout">
+      <section class="card sidebar">
+        <div>
+          <p class="kicker">Your page</p>
+          <h1 style="font-size: clamp(2rem, 4vw, 3.25rem); margin-bottom: 12px;">Arrival monitor</h1>
+          <p class="subtitle">
+            Set destination on the map, choose a radius, then tap Connect.
+          </p>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="monitorRideId">Ride ID</label>
+            <input id="monitorRideId" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="field">
+            <label for="monitorLink">Monitor link</label>
+            <input id="monitorLink" readonly />
+          </div>
+          <div class="row">
+            <button class="cta ghost" id="copyMonitorLink">Copy monitor link</button>
+            <button class="cta primary" id="connectRide">Connect</button>
+          </div>
+          <div class="field">
+            <label for="radiusRange">Alert radius: <span id="radiusLabel"></span></label>
+            <input id="radiusRange" type="range" min="50" max="2000" step="10" />
+          </div>
+          <div class="row">
+            <button class="cta ghost" id="muteAlarm">Mute alarm</button>
+          </div>
+          <div class="alert" id="monitorAlert">Checking Firebase configuration...</div>
+        </div>
+
+        <div class="status">
+          <div class="metric-grid">
+            <div class="metric">
+              <span>Connection</span>
+              <strong id="connectionStatus">Idle</strong>
+            </div>
+            <div class="metric">
+              <span>Distance</span>
+              <strong id="distanceValue">--</strong>
+            </div>
+            <div class="metric">
+              <span>Last seen</span>
+              <strong id="lastSeenValue">--</strong>
+            </div>
+            <div class="metric">
+              <span>Alarm state</span>
+              <strong id="alarmState">Waiting</strong>
+            </div>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          Click the map to move destination. Radius and destination are saved automatically.
+        </p>
+      </section>
+
+      <section class="card stage map-wrap">
+        <div id="monitorMap" class="map"></div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="./monitor.js"></script>
+  </body>
+</html>

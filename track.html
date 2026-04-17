@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ride Alarm - Track</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell app-layout">
+      <section class="card sidebar">
+        <div>
+          <p class="kicker">Sister page</p>
+          <h1 style="font-size: clamp(2rem, 4vw, 3.25rem); margin-bottom: 12px;">Live location sharing</h1>
+          <p class="subtitle">
+            Open this page in the cab, allow location, then tap Start.
+          </p>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="rideId">Ride ID</label>
+            <input id="rideId" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="row">
+            <button class="cta primary" id="startTracking">Start tracking</button>
+            <button class="cta ghost" id="stopTracking">Stop</button>
+          </div>
+          <div class="alert" id="setupAlert">Checking Firebase configuration...</div>
+        </div>
+
+        <div class="status">
+          <div class="metric-grid">
+            <div class="metric">
+              <span>Status</span>
+              <strong id="trackStatus">Idle</strong>
+            </div>
+            <div class="metric">
+              <span>Last update</span>
+              <strong id="timestampValue">--</strong>
+            </div>
+            <div class="metric">
+              <span>Tracking</span>
+              <strong>On this phone</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card stage map-wrap">
+        <div id="trackMap" class="map"></div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="./track.js"></script>
+  </body>
+</html>
