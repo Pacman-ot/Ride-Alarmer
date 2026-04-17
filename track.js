@@ -6,6 +6,8 @@ import {
   rideIdKey
 } from "./firebase-config.js";
 import {
+  buildRideLink,
+  copyText,
   formatCoordinate,
   getRideIdFromUrl,
   readStoredJson,
@@ -13,6 +15,8 @@ import {
 } from "./shared.js";
 
 const rideIdInput = document.getElementById("rideId");
+const monitorLinkInput = document.getElementById("monitorLink");
+const copyMonitorLinkButton = document.getElementById("copyMonitorLink");
 const startButton = document.getElementById("startTracking");
 const stopButton = document.getElementById("stopTracking");
 const statusElement = document.getElementById("trackStatus");
@@ -58,6 +62,11 @@ function formatTimestamp(timestamp) {
     minute: "2-digit",
     second: "2-digit"
   });
+}
+
+function updateLinks() {
+  const rideId = rideIdInput.value.trim() || defaultRideId;
+  monitorLinkInput.value = buildRideLink("monitor.html", rideId);
 }
 
 async function connectFirebase() {
@@ -151,6 +160,19 @@ stopButton.addEventListener("click", stopTracking);
 rideIdInput.addEventListener("change", () => {
   const rideId = rideIdInput.value.trim() || defaultRideId;
   localStorage.setItem(rideIdKey, rideId);
+  updateLinks();
+});
+
+copyMonitorLinkButton.addEventListener("click", async () => {
+  try {
+    await copyText(monitorLinkInput.value);
+    setupAlert.textContent = "Monitor link copied.";
+    setStatus("Ready to start", "success");
+  } catch (error) {
+    console.error(error);
+    setupAlert.textContent = "Could not copy link.";
+    setStatus("Copy failed", "danger");
+  }
 });
 
 const lastStoredLocation = readStoredJson("ride-alarm.last-track-location", null);
@@ -174,3 +196,5 @@ if (!isFirebaseConfigured(firebaseConfig)) {
   setupAlert.textContent = "Firebase is configured. Tap Start tracking when the ride begins.";
   setStatus("Ready to start");
 }
+
+updateLinks();

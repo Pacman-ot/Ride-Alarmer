@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ride Alarm - Track</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,10 +15,10 @@
     <main class="shell app-layout">
       <section class="card sidebar">
         <div>
-          <p class="kicker">Sister page</p>
-          <h1 style="font-size: clamp(2rem, 4vw, 3.25rem); margin-bottom: 12px;">Live location sharing</h1>
+          <p class="kicker">Cab page</p>
+          <h1 style="font-size: clamp(2rem, 4vw, 3.25rem); margin-bottom: 12px;">Cab live tracking</h1>
           <p class="subtitle">
-            Open this page in the cab, allow location, then tap Start.
+            Open this page in the cab, allow location, then tap Start. The monitor link can be copied from here too.
           </p>
         </div>
 
@@ -25,6 +26,13 @@
           <div class="field">
             <label for="rideId">Ride ID</label>
             <input id="rideId" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="field">
+            <label for="monitorLink">Monitor link</label>
+            <input id="monitorLink" readonly />
+          </div>
+          <div class="row">
+            <button class="cta ghost" id="copyMonitorLink">Copy monitor link</button>
           </div>
           <div class="row">
             <button class="cta primary" id="startTracking">Start tracking</button>
@@ -44,8 +52,8 @@
               <strong id="timestampValue">--</strong>
             </div>
             <div class="metric">
-              <span>Tracking</span>
-              <strong>On this phone</strong>
+              <span>Mode</span>
+              <strong>Cab alarm</strong>
             </div>
           </div>
         </div>

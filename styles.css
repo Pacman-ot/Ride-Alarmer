@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --bg: #08121f;
-  --bg-soft: #0f1d30;
-  --card: rgba(10, 19, 34, 0.76);
-  --card-border: rgba(255, 255, 255, 0.09);
-  --text: #eef4ff;
-  --muted: #b7c4d8;
-  --accent: #57d7ff;
-  --accent-2: #8dffcf;
-  --danger: #ff6b7a;
+  --bg: #0d0b08;
+  --bg-soft: #191410;
+  --card: rgba(24, 19, 15, 0.84);
+  --card-border: rgba(255, 214, 90, 0.12);
+  --text: #fff6dd;
+  --muted: #d2c4ad;
+  --accent: #ffd24d;
+  --accent-2: #ff9f2d;
+  --danger: #ff5f5f;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
   --radius: 24px;
 }
@@ -27,9 +27,10 @@ body {
   font-family: Manrope, system-ui, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(87, 215, 255, 0.22), transparent 28%),
-    radial-gradient(circle at top right, rgba(141, 255, 207, 0.18), transparent 22%),
-    linear-gradient(135deg, var(--bg), #05090f 70%);
+    radial-gradient(circle at top left, rgba(255, 210, 77, 0.22), transparent 30%),
+    radial-gradient(circle at top right, rgba(255, 95, 95, 0.16), transparent 24%),
+    radial-gradient(circle at bottom center, rgba(255, 159, 45, 0.08), transparent 30%),
+    linear-gradient(135deg, var(--bg), #050403 72%);
 }
 
 body::before {
@@ -69,7 +70,7 @@ body::before {
   width: 340px;
   height: 340px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(87, 215, 255, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 210, 77, 0.22), transparent 68%);
   filter: blur(10px);
 }
 
@@ -131,7 +132,7 @@ h1 {
 }
 
 .button.primary {
-  color: #03131f;
+  color: #1a1202;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
 
@@ -247,8 +248,8 @@ select {
 
 input:focus,
 select:focus {
-  border-color: rgba(87, 215, 255, 0.65);
-  box-shadow: 0 0 0 3px rgba(87, 215, 255, 0.14);
+  border-color: rgba(255, 210, 77, 0.72);
+  box-shadow: 0 0 0 3px rgba(255, 210, 77, 0.14);
 }
 
 .row {
@@ -270,7 +271,7 @@ select:focus {
 }
 
 .cta.primary {
-  color: #03131f;
+  color: #1a1202;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
 
@@ -318,9 +319,41 @@ select:focus {
 }
 
 .alert.success {
-  border-color: rgba(141, 255, 207, 0.22);
-  background: rgba(141, 255, 207, 0.08);
-  color: #e6fff7;
+  border-color: rgba(255, 210, 77, 0.28);
+  background: rgba(255, 210, 77, 0.08);
+  color: #fff5cc;
+}
+
+.sidebar::before,
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--danger));
+  opacity: 0.8;
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.sidebar,
+.hero {
+  position: relative;
+}
+
+.sidebar::after {
+  content: "CAB ALARM";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 210, 77, 0.1);
+  border: 1px solid rgba(255, 210, 77, 0.18);
+  color: var(--accent);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .map-wrap {
