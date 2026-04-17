@@ -1,11 +1,11 @@
 export const firebaseConfig = {
- apiKey: "AIzaSyAe_vxarOPXOUAlLBG-AOMZ8VHDCYSOCcE",
-  authDomain: "realtime-database-a8495.firebaseapp.com",
-  databaseURL: "https://realtime-database-a8495-default-rtdb.firebaseio.com",
-  projectId: "realtime-database-a8495",
-  storageBucket: "realtime-database-a8495.firebasestorage.app",
-  messagingSenderId: "224259929044",
-  appId: "1:224259929044:web:a94ed53a1a4a79a9965c41"
+ apiKey: "Your_API",
+  authDomain: "AUTH_Token",
+  databaseURL: "DB_URL",
+  projectId: "Project_ID",
+  storageBucket: "Storage_Bucket",
+  messagingSenderId: "Sender_ID",
+  appId: "App_ID"
 };
 
 export const rideIdKey = "ride-alarm.rideId";
