@@ -1,4 +1,4 @@
-# Ride Alarm
+# Ride Alarmer
 
 A static two-page location alarm that uses Firebase Realtime Database as the middleman between a rider's phone and your monitor page.
 
